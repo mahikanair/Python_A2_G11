@@ -103,5 +103,38 @@ class MergeSort(Sort):
       end_time = time.time() #stop time
       self.time = end_time - start_time #Time elapsed
       return self.time
-    
+
+if __name__ == '__main__': 
+    #find the size vs time plots
+    import random
+    import matplotlib.pyplot as plt
+
+    bub_t = [] #list to store the different amounts of time it took to do bubble sort (for different sizes)
+    mer_t = [] #list to store the different amounts of time it took to do merge sort (for different sizes)
+    sizes = [] #sizes for lists
+    x = 5 
+    for i in range(100): 
+        #creating random lists of random sizes
+        size = random.randint(1, 500) 
+        sizes.append(size) #add the size as that element of the size list 
+        random_list = [random.randint(-1000, 1000) for i in range(size)]
+        #time taken for the sorts with this particular random list 
+        bub = BubbleSort(random_list)       
+        time_bub = bub._time()
+        bub_t.append(time_bub)
+
+        mer = MergeSort(random_list)  
+        time_mer = mer._time()
+        mer_t.append(time_mer)
+    #plotting both in one graph to compare 
+    plt.scatter(sizes, bub_t, color = 'red')
+    plt.scatter(sizes, mer_t, color = 'blue')
+    plt.xlabel('Sizes')
+    plt.ylabel('Time')
+    plt.title('Scatter Plot of Time taken to sort vs. Size of list')
+    plt.legend()
+
+    # Save the plot to file (PNG format)
+    plt.savefig('sorts.png')
+        
 
