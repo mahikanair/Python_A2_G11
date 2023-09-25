@@ -37,11 +37,11 @@ class BubbleSort(Sort):
 
     def _time(self):
       start_time = time.time() #start time
-      sorted_items = self._sort() #run the sort method 
+      sorted_items = self._sort() #run the sort method
       end_time = time.time() #stop time
-      self.time = end_time - start_time #tells us total time 
+      self.time = end_time - start_time #tells us total time
       return self.time
-    
+
 
 class MergeSort(Sort):
     """Class that represents a MergeSort implementation."""
@@ -49,14 +49,14 @@ class MergeSort(Sort):
       items = self.get_items()
       if len(items) <= 1:
         return items
-        
+
       mid = len(items) // 2
       left = items[:mid]
       right = items[mid:]
 
       # Recursively sort both halves
       merge_sort_left = MergeSort(left) #we need to create an instance because this method takes no arguments.
-      # Hence we need to create a new instane for the left and right separately 
+      # Hence we need to create a new instane for the left and right separately
       merge_sort_right = MergeSort(right)
 
       left = merge_sort_left._sort()
@@ -69,7 +69,7 @@ class MergeSort(Sort):
 
     def _merge(self, left, right):
         merged = []
-    
+
     # Initialize two pointers, i and j
         i = j = 0
 
@@ -99,36 +99,36 @@ class MergeSort(Sort):
 
     def _time(self):
       start_time = time.time() #start time
-      sorted_items = self._sort() #run the sort method 
+      sorted_items = self._sort() #run the sort method
       end_time = time.time() #stop time
       self.time = end_time - start_time #Time elapsed
       return self.time
 
-if __name__ == '__main__': 
+if __name__ == '__main__':
     #find the size vs time plots
     import random
     import matplotlib.pyplot as plt
 
     bub_t = [] #list to store the different amounts of time it took to do bubble sort (for different sizes)
     mer_t = [] #list to store the different amounts of time it took to do merge sort (for different sizes)
-    sizes = [] #sizes for lists
-    x = 5 
-    for i in range(100): 
-        #creating random lists of random sizes
-        size = random.randint(1, 500) 
-        sizes.append(size) #add the size as that element of the size list 
-        random_list = [random.randint(-1000, 1000) for i in range(size)]
-        #time taken for the sorts with this particular random list 
-        bub = BubbleSort(random_list)       
+    sizes = [10, 50, 100, 500, 1000, 1500, 2000, 3000, 5000] #sizes for lists, till 5000
+    x = 5
+    for i in range(len(sizes)):
+        #creating random lists of the pre-defined sizes
+        random_list = [random.randint(-1000, 1000) for i in range(sizes[i])]
+        #time taken for the sorts with this particular random list
+        bub = BubbleSort(random_list)
+        sorted_bub = bub._sort()
         time_bub = bub._time()
         bub_t.append(time_bub)
 
-        mer = MergeSort(random_list)  
+        mer = MergeSort(random_list)
+        sorted_mer = mer._sort()
         time_mer = mer._time()
         mer_t.append(time_mer)
-    #plotting both in one graph to compare 
-    plt.scatter(sizes, bub_t, color = 'red')
-    plt.scatter(sizes, mer_t, color = 'blue')
+    #plotting both in one graph to compare
+    plt.plot(sizes, bub_t, color = 'red', label = 'Bubble sort timings')
+    plt.plot(sizes, mer_t, color = 'blue', label = 'Merge sort timings')
     plt.xlabel('Sizes')
     plt.ylabel('Time')
     plt.title('Scatter Plot of Time taken to sort vs. Size of list')
@@ -136,5 +136,3 @@ if __name__ == '__main__':
 
     # Save the plot to file (PNG format)
     plt.savefig('sorts.png')
-        
-
