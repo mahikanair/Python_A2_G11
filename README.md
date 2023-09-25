@@ -12,3 +12,9 @@ Linear Search: a sequential manner is used to find the required element. Every e
 Binary Search: used to search an element in a sorted array. It's an efficient algorithm and is better than linear search in terms of time complexity. Time Complexity: O(log N) Space Complexity: O(log N)
 
 It's expected that Merge Sort is the better one when compared to Bubble Sort in normal and worst case scenarios. It's also expected that Binary Search is going to be better than Linear Search(when using sorted data) in normal and worst case scenarios, as when there is unsorted data Binary Search cannot be applied.
+
+Contributions: 
+Mahika - code for bubble sort 
+Ankur - code for merge sort 
+Ritvik - code for binary search 
+Amar - code for linear search 
