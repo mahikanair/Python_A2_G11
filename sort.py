@@ -112,7 +112,7 @@ if __name__ == '__main__':
     bub_t = [] #list to store the different amounts of time it took to do bubble sort (for different sizes)
     mer_t = [] #list to store the different amounts of time it took to do merge sort (for different sizes)
     sizes = [] #sizes for lists
-    x = 5 
+
     for i in range(100): 
         #creating random lists of random sizes
         size = random.randint(1, 500) 
