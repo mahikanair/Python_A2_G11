@@ -83,7 +83,7 @@ if __name__ == '__main__':
 
   for i in range(len(sizes)):
       # Creating random lists of the pre-defined sizes
-      random_list = [random.randint(-1000, 1000) for i in range(sizes[i])]
+      random_list = [random.randint(-1000, 1000) for j in range(sizes[i])]
       # Time taken for the searches with this particular random list
       lin = LinSearch(random_list)
       search_lin = lin._search(x)
@@ -104,7 +104,7 @@ if __name__ == '__main__':
   plt.legend()
 
   # Save the plot to file (PNG format)
-  plt.savefig('searches.png')
+  plt.savefig('search_time.png')
 
   # Show the plot
   plt.show()
