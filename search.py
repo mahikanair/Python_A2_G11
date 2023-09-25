@@ -34,7 +34,7 @@ class LinSearch(Search):
     def _search(self, search_for):
         items = self.get_items()
         for i in range(len(items)):
-            if items[i] == search_for:
+            if items[i] == search_for: #checking witgh each element until found
                 return i
         return -1
 
@@ -52,13 +52,13 @@ class BinSearch(Search):
         l = 0
         r = len(items) - 1
         while l <= r:
-            mid = (r + l) // 2
+            mid = (r + l) // 2 #middle of list
             if items[mid] == search_for:
-                return mid
+                return mid #item found
             elif items[mid] < search_for:
-                l = mid + 1
+                l = mid + 1 #item is greater than middle item
             else:
-                r = mid - 1
+                r = mid - 1 #item is smaller than middle item
         return -1
 
     def _time(self, search_for):
