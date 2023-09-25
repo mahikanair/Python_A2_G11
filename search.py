@@ -104,7 +104,7 @@ if __name__ == '__main__':
   plt.legend()
 
   # Save the plot to file (PNG format)
-  plt.savefig('searches.png')
+  plt.savefig('search.png')
 
   # Show the plot
   plt.show()
