@@ -145,4 +145,4 @@ if __name__ == '__main__':
     plt.legend()
 
     # Save the plot to file (PNG format)
-    plt.savefig('sorts.png')
+    plt.savefig('sort_time.png')
