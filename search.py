@@ -30,7 +30,7 @@ class Search(ABC):
         return self.time
 
 
-class Linear(Search):
+class LinSearch(Search):
     def _search(self, search_for):
         items = self.get_items()
         for i in range(len(items)):
@@ -46,7 +46,7 @@ class Linear(Search):
         return self.time
 
 
-class Binary(Search):
+class BinSearch(Search):
     def _search(self, search_for):
         items = self.get_items()
         l = 0
@@ -85,12 +85,12 @@ if __name__ == '__main__':
       # Creating random lists of the pre-defined sizes
       random_list = [random.randint(-1000, 1000) for i in range(sizes[i])]
       # Time taken for the searches with this particular random list
-      lin = Linear(random_list)
+      lin = LinSearch(random_list)
       search_lin = lin._search(x)
       time_lin = lin._time(x)
       lin_t.append(time_lin)
 
-      bin = Binary(sorted(random_list))
+      bin = BinSearch(sorted(random_list))
       search_bin = bin._search(x)
       time_bin = bin._time(x)
       bin_t.append(time_bin)
