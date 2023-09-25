@@ -56,7 +56,7 @@ class MergeSort(Sort):
 
       # Recursively sort both halves
       merge_sort_left = MergeSort(left) #we need to create an instance because this method takes no arguments.
-      # Hence we need to create a new instane for the left and right separately 
+      # Hence we need to create a new instance for the left and right separately 
       merge_sort_right = MergeSort(right)
 
       left = merge_sort_left._sort()
